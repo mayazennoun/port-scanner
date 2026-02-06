@@ -1,6 +1,6 @@
-# Quick Nmap Port Scanner
+# Nmap Port Scanner
 
-Un script Python simple permettant d’effectuer un scan rapide de ports sur une adresse IP cible à l’aide de Nmap.
+Un script Python simple permettant d’effectuer un scan de ports sur une adresse IP cible à l’aide de Nmap.
 Il analyse les ports les plus courants et affiche les services détectés ainsi que leurs versions.
 
 ## Fonctionnalités
