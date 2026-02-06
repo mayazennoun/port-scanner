@@ -1,27 +1,55 @@
-# Python Multi-Threaded Port Scanner 
+# Quick Nmap Port Scanner
 
-Un scanner de ports TCP rapide et léger écrit en Python, utilisant le multi-threading pour scanner des plages de ports en quelques secondes.
-
-## Description
-
-Ce script permet de vérifier quels ports TCP sont ouverts sur une adresse IP cible (hôte local ou distant). Il utilise la bibliothèque `concurrent.futures` pour gérer un pool de threads, ce qui permet de tester plusieurs ports simultanément plutôt que d'attendre la réponse de chaque port l'un après l'autre.
+Un script Python simple permettant d’effectuer un scan rapide de ports sur une adresse IP cible à l’aide de Nmap.
+Il analyse les ports les plus courants et affiche les services détectés ainsi que leurs versions.
 
 ## Fonctionnalités
 
-* **Vitesse :** Utilisation de `ThreadPoolExecutor` pour un scan ultra-rapide.
-* **Sécurité :** Utilisation de verrous (`threading.Lock`) pour éviter l'entrelacement des messages dans la console.
-* **Facilité d'utilisation :** Demande simplement l'IP cible à l'exécution.
-* **Gestion des erreurs :** Gère les interruptions clavier (Ctrl+C) et les erreurs de résolution de nom d'hôte.
+* Scan des ports TCP de 1 à 1024
 
-## Installation
+* Détection de l’état des ports
 
-1.  Assurez-vous d'avoir **Python 3.6+** installé sur votre système.
-2.  Clonez ce dépôt ou copiez le fichier `.py`.
-3.  Aucune bibliothèque externe n'est requise (utilise uniquement la bibliothèque standard).
 
-## Utilisation
+* Identification des services et des versions
 
-Lancez le script depuis votre terminal :
+* Scan rapide avec Nmap
+
+* Affichage clair des résultats dans le terminal.
+
+## Prérequis
+
+* Python 3
+
+* Nmap
+
+* Bibliothèque python-nmap
+
+Installation de la bibliothèque Python
 
 ```bash
-python port_scanner.py
+pip install python-nmap
+```
+Assurez-vous que Nmap est installé et accessible depuis le PATH du système.
+
+## Utilisation
+Lancer le script
+```bash
+python scan_nmap.py
+```
+Entrer l’adresse IP à scanner lorsque demandé.
+
+## Options Nmap utilisées
+* -sV Détection des versions des services
+
+* -T4 Accélération du scan
+
+* 1-1024 Plage des ports standards
+
+## Exemple de sortie
+```bash
+Hôte : 192.168.1.1
+État : up
+Protocole : tcp
+Port 22 : open | Service : ssh OpenSSH 8.2
+Port 80 : open | Service : http Apache 2.4.41
+```
